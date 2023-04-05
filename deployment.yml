@@ -1,0 +1,28 @@
+#deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  namespace: dev
+  labels:
+    app: nodejsapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejsapp
+      tier: frontend
+      version: 1.0.0
+#pod tempalte
+  template:
+    metadata:
+      labels:
+        app: nodejsapp
+        tier: frontend
+        version: 1.0.0
+    spec: # Pod spec
+      containers:
+      - name: nodejs-container
+        image: ooghenekaro/nodejs:releaseTag
+        ports:
+        - containerPort: 3000
