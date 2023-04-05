@@ -11,13 +11,14 @@ pipeline {
         stage('Update Deployment manifest') {
                environment {
                          GIT_REPO_NAME="argocd-manifest"
+                         APP_NAME="ooghenekaro/nodejs-app"
              }
             steps {
                     withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {   
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         sh "cat deployment.yml"
-                        sh "sed -i 's+ooghenekaro/nodejs-app.*+ooghenekaro/nodejs-app:${DOCKERTAG}+g' deployment.yml"
+                        sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${DOCKERTAG}+g' deployment.yml"
                         sh "cat deployment.yml"
                         sh "git add ."
                         sh "git commit -m 'Update the Deployment image to this version: ${BUILD_NUMBER}'"
