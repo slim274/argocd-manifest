@@ -13,7 +13,7 @@ pipeline {
                          GIT_REPO_NAME="argocd-manifest"
              }
             steps {
-                    withCredentials([usernamePassword(credentialsId: 'karosec-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {   
+                    withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {   
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         sh "cat deployment.yaml"
