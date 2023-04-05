@@ -17,7 +17,7 @@ pipeline {
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         sh "cat deployment.yml"
-                        sh "sed -i 's+ooghenekaro/nodejs-app.*+ooghenekaro/nodejs-app:${BUILD_NUMBER}+g' deployment.yml"
+                        sh "sed -i 's+ooghenekaro/nodejs-app.*+ooghenekaro/nodejs-app:${DOCKERTAG}+g' deployment.yml"
                         sh "cat deployment.yml"
                         sh "git add ."
                         sh "git commit -m 'Update the Deployment image to this version: ${BUILD_NUMBER}'"
