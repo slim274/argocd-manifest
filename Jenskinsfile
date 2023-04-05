@@ -4,9 +4,10 @@ pipeline {
 
     stages {
         stage('Git Checkout') {
-              
-        }
-
+            steps {
+             git branch: 'main', url: 'https://github.com/ooghenekaro/argocd-manifest.git'  
+           }
+        }  
         stage('Update Deployment manifest') {
                environment {
                          GIT_REPO_NAME="argocd-manifest"
