@@ -12,7 +12,7 @@ pipeline {
                environment {
                          GIT_REPO_NAME="argocd-manifest"
                          APP_NAME="nodejs-app"
-                         DOCKERTAG="${BUILD_NUMBER}"
+                 
              }
             steps {
                     withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {   
