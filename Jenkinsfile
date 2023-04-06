@@ -25,6 +25,7 @@ pipeline {
                         sh "git add ."
                         sh "git commit -m 'Update the Deployment image to this version: ${BUILD_NUMBER}'"
                         sh "git push https://${GIT_TOKEN}@github.com/${GIT_USERNAME}/${GIT_REPO_NAME} HEAD:main" 
+                    }
            }
        }
     }
