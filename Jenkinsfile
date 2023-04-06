@@ -1,5 +1,7 @@
 node {
     def app
+    
+    env.IMAGE = 'ooghenekaro/nodejs'
 
     stage('Clone repository') {
              git branch: 'main', url: 'https://github.com/ooghenekaro/argocd-manifest.git'  
@@ -10,7 +12,7 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         script {def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')}
-                        scripy  {def IMAGE='ooghenekaro/nodejs-app'}
+                        //script  {def IMAGE='ooghenekaro/nodejs-app'}
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         //sh "git switch master"
