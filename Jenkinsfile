@@ -11,7 +11,7 @@ pipeline {
         stage('Update Deployment manifest') {
                environment {
                          GIT_REPO_NAME="argocd-manifest"
-                         APP_NAME="ooghenekaro/nodejs-app"
+                         APP_NAME="nodejs-app"
                          DOCKERTAG="${BUILD_NUMBER}"
              }
             steps {
