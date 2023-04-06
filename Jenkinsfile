@@ -16,7 +16,7 @@ pipeline {
                  
              }
             steps {
-                    withCredentials([usernamePassword(credentialsId: 'karosec-github, variable: 'GIT_TOKEN'')]) {   
+                    withCredentials([usernamePassword(credentialsId: 'karosec-github', variable: 'GIT_TOKEN')]) {   
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         sh "cat deployment.yml"
