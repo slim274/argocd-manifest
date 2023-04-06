@@ -23,7 +23,7 @@ spec:
     spec: # Pod spec
       containers:
       - name: nodejs-container
-        image: ooghenekaro/nodejs:v1
+        image: ooghenekaro/nodejs:85
         ports:
         - containerPort: 3000
 
