@@ -16,7 +16,7 @@ pipeline {
              }
             steps {
                     withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) { 
-                        def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                        //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
                         sh "cat deployment.yml"
