@@ -2,6 +2,8 @@
 
 
 node {
+    
+    environment {TAG = "v1"}
     def app
 
     stage('Clone repository') {
@@ -17,7 +19,7 @@ node {
                         sh "git config user.name ooghenekaro"
                         //sh "git switch master"
                         sh "cat deployment.yml"
-                        sh "sed -i 's/v1/${DOCKERTAG}/g' deployment.yml"
+                        sh "sed -i 's/${TAG}/${DOCKERTAG}/g' deployment.yml"
                         sh "cat deployment.yml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
