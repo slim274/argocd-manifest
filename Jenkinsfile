@@ -11,7 +11,7 @@ node {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'karo-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                        script {def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')}
+                        //script {def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')}
                         //script  {def IMAGE='ooghenekaro/nodejs-app'}
                         sh "git config user.email ooghenekaro@yahoo.com"
                         sh "git config user.name ooghenekaro"
