@@ -3,7 +3,7 @@
 
 node {
     
-    environment {TAG = "v1"}
+    environment {TAG = "${BUILD_NUMBER}"}
     def app
 
     stage('Clone repository') {
