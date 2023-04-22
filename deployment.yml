@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-deployment
-  namespace: dev
+  namespace: deafault
   labels:
     app: nodejsapp
 spec:
@@ -26,4 +26,20 @@ spec:
         image: ooghenekaro/nodejs:87
         ports:
         - containerPort: 3000
+        
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+  labels:
+    app: nodejsapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: nodejsapp
 
