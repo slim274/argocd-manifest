@@ -25,7 +25,7 @@ spec:
       - name: nodejs-container
         image: ooghenekaro/maven-demo:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         
         
 ---
@@ -39,7 +39,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 3000
+    targetPort: 8080
   selector:
     app: nodejsapp
 
