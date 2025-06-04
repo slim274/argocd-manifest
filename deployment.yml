@@ -23,7 +23,7 @@ spec:
     spec: # Pod spec
       containers:
       - name: nodejs-container
-        image: ooghenekaro/nodejs:3
+        image: ooghenekaro/maven-demo:latest
         ports:
         - containerPort: 3000
         
